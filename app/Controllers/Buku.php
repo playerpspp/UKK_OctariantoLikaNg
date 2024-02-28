@@ -164,30 +164,5 @@ class Buku extends BaseController
         
     }
 
-    public function reset_password($id)
-    {
-    if (!$this->checkAuth()) {
-        return redirect()->to(base_url('/home/dashboard'));
-    }
-
-        $model=new M_model();
-        $where=array('id_user'=>$id);
-        $data=array(
-            'password'=>md5('halo#12345')
-        );
-        $model->edit('user',$data,$where);
-
-        $log = array(
-            'isi_log' => 'user melakukan reset password pada pengawai',
-            'log_idUser' => session()->get('id'), 
-            
-        );
-
-        $model->simpan('log', $log);
-
-        return redirect()->to('/pengawai');
-
-        
-    }
 
 }

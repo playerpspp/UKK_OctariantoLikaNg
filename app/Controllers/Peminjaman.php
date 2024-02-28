@@ -26,7 +26,7 @@ class Peminjaman extends BaseController
         $model = new M_model();
         $data['data']= $model->tampil('buku');
         $data['kategori']= $model->relasiKategori();
-        echo view('buku/buku',$data);
+        echo view('peminjaman/peminjaman',$data);
         // print_r($data['kategori']);
     }
 
@@ -38,7 +38,7 @@ class Peminjaman extends BaseController
 
         $model = new M_model();
         $data['data']= $model->tampil('kategoribuku');
-        echo view('buku/input',$data);
+        echo view('peminjaman/input',$data);
     }
 
     public function aksi_input()
@@ -86,7 +86,7 @@ class Peminjaman extends BaseController
         );
 
         $model->simpan('log', $log);
-        return redirect()->to('/buku');
+        return redirect()->to('/peminjaman');
 
     }
 
@@ -99,7 +99,7 @@ class Peminjaman extends BaseController
 
         $model = new M_model();
         $data['buku']= $model->getRow('buku',['bukuID ' => $id]);
-        echo view('buku/edit',$data);
+        echo view('peminjaman/edit',$data);
     }
 
     public function aksi_edit()
@@ -134,7 +134,7 @@ class Peminjaman extends BaseController
         );
 
         $model->simpan('log', $log);
-        return redirect()->to('/buku');
+        return redirect()->to('/peminjaman');
 
 
     }
@@ -159,35 +159,10 @@ class Peminjaman extends BaseController
 
         $model->simpan('log', $log);
 
-        return redirect()->to('/buku');
+        return redirect()->to('/peminjaman');
 
         
     }
 
-    public function reset_password($id)
-    {
-    if (!$this->checkAuth()) {
-        return redirect()->to(base_url('/home/dashboard'));
-    }
-
-        $model=new M_model();
-        $where=array('id_user'=>$id);
-        $data=array(
-            'password'=>md5('halo#12345')
-        );
-        $model->edit('user',$data,$where);
-
-        $log = array(
-            'isi_log' => 'user melakukan reset password pada pengawai',
-            'log_idUser' => session()->get('id'), 
-            
-        );
-
-        $model->simpan('log', $log);
-
-        return redirect()->to('/pengawai');
-
-        
-    }
 
 }
