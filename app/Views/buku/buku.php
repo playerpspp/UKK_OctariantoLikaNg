@@ -43,7 +43,7 @@
 							<td>
 							<div class="text-center mb-1">
 
-                            <a href="<?= base_url('/buku/Ulasan/'.$dataa->bukuID) ?>" class="btn btn-warning">
+                            <a href="<?= base_url('/buku/Ulasan/'.$dataa->bukuID) ?>" class="btn btn-primary">
 										Ulasan
 									</a>
                               
