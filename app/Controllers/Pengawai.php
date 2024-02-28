@@ -1,0 +1,179 @@
+<?php
+
+namespace App\Controllers;
+
+use App\Models\M_model;
+
+class Pengawai extends BaseController
+{
+    protected function checkAuth()
+    {
+        $id_user = session()->get('id');
+        $level = session()->get('level');
+        if ($id_user != null && $level == 'admin') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function index()
+    {
+         if (!$this->checkAuth()) {
+            return redirect()->to(base_url('/home/dashboard'));
+        }
+
+        $model = new M_model();
+        $data['data']= $model->getWhere('user',['level !=' => 'peminjam']);
+        echo view('pengawai/pengawai',$data);
+    }
+
+    public function input_pengawai()
+    {
+         if (!$this->checkAuth()) {
+            return redirect()->to(base_url('/home/dashboard'));
+        }
+
+        $model = new M_model();
+        echo view('pengawai/input');
+    }
+
+    public function aksi_input()
+    {
+         if (!$this->checkAuth()) {
+            return redirect()->to(base_url('/home/dashboard'));
+        }
+
+       
+        $namaLengkap=$this->request->getPost('nama_pegawai');
+        $email=$this->request->getPost('email');
+        $alamat=$this->request->getPost('alamat');
+        $username=$this->request->getPost('username');
+        $level=$this->request->getPost('level');
+        $maker_pegawai=session()->get('id');
+
+        $user=array(
+            'username'=>$username,
+            'password'=>md5('halo#12345'),
+            'level'=>$level,
+            'alamat'=>$alamat,
+            'email'=>$email,
+            'namaLengkap'=> $namaLengkap
+        );
+
+        $model=new M_model();
+        $model->simpan('user', $user);
+        
+        $log = array(
+            'isi_log' => 'user menambahkan data pengawai',
+            'log_idUser' => $maker_pegawai,
+            
+        );
+
+        $model->simpan('log', $log);
+        return redirect()->to('/pengawai');
+
+    }
+
+
+    public function edit($id)
+    {
+         if (!$this->checkAuth()) {
+            return redirect()->to(base_url('/home/dashboard'));
+        }
+
+        $model = new M_model();
+        $data['data']= $model->getRow('user',['id_user ' => $id]);
+        echo view('pengawai/edit',$data);
+    }
+
+    public function aksi_edit()
+    {
+        if (!$this->checkAuth()) {
+            return redirect()->to(base_url('/home/dashboard'));
+        }
+        $id= $this->request->getPost('id');    
+        $namaLengkap=$this->request->getPost('nama_pegawai');
+        $email=$this->request->getPost('email');
+        $alamat=$this->request->getPost('alamat');
+        $username=$this->request->getPost('username');
+        $level=$this->request->getPost('level');
+        $maker_pegawai=session()->get('id');
+
+        $where=array('id_user'=>$id);    
+       
+            $user=array(
+            'level'=>$level,
+            'alamat'=>$alamat,
+            'email'=>$email,
+            'namaLengkap'=> $namaLengkap
+            );
+        
+
+        $model=new M_model();
+        $model->edit('user', $user,$where);
+
+       
+        
+        $log = array(
+            'isi_log' => 'user mengubah data pengawai',
+            'log_idUser' => $maker_pegawai,
+            
+        );
+
+        $model->simpan('log', $log);
+        return redirect()->to('/pengawai');
+
+    }
+
+    public function hapus($id)
+    {
+    if (!$this->checkAuth()) {
+        return redirect()->to(base_url('/home/dashboard'));
+    }
+
+        $model=new M_model();
+        $where2=array('id_user'=>$id);
+
+        $model->hapus('user',$where2);
+
+        $log = array(
+            'isi_log' => 'user menghapus data pengawai',
+            'log_idUser' => $maker_pegawai,
+            
+        );
+
+        $model->simpan('log', $log);
+
+        return redirect()->to('/pengawai');
+
+        
+    }
+
+    public function reset_password($id)
+    {
+    if (!$this->checkAuth()) {
+        return redirect()->to(base_url('/home/dashboard'));
+    }
+
+        $model=new M_model();
+        $where=array('id_user'=>$id);
+        $data=array(
+            'password'=>md5('halo#12345')
+        );
+        $model->edit('user',$data,$where);
+
+        $log = array(
+            'isi_log' => 'user melakukan reset password pada pengawai',
+            'log_idUser' => session()->get('id'), 
+            
+        );
+
+        $model->simpan('log', $log);
+
+        return redirect()->to('/pengawai');
+
+        
+    }
+
+}
