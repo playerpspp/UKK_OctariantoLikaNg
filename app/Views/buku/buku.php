@@ -46,6 +46,10 @@
                             <a href="<?= base_url('/buku/Ulasan/'.$dataa->bukuID) ?>" class="btn btn-primary">
 										Ulasan
 									</a>
+
+									<a href="<?= base_url('/buku/Ulasan/'.$dataa->bukuID) ?>" class="btn btn-gray">
+										Ulasan
+									</a>
                               
 									<a href="<?= base_url('/buku/edit/'.$dataa->bukuID) ?>" class="btn btn-warning">
 										Edit
