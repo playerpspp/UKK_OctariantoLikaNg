@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\M_model;
 
-class Peminjam extends BaseController
+class Koleksi extends BaseController
 {
     protected function checkAuth()
     {
@@ -25,10 +25,10 @@ class Peminjam extends BaseController
 
         $model = new M_model();
         $data['data']= $model->getWhere('user',['level ' => 'peminjam']);
-        echo view('peminjam/peminjam',$data);
+        echo view('koleksi/koleksi',$data);
     }
 
-    public function input_pengawai()
+    public function input()
     {
          if (!$this->checkAuth()) {
             return redirect()->to(base_url('/home/dashboard'));
@@ -149,5 +149,30 @@ class Peminjam extends BaseController
         
     }
 
+    public function reset_password($id)
+    {
+    if (!$this->checkAuth()) {
+        return redirect()->to(base_url('/home/dashboard'));
+    }
+
+        $model=new M_model();
+        $where=array('id_user'=>$id);
+        $data=array(
+            'password'=>md5('halo#12345')
+        );
+        $model->edit('user',$data,$where);
+
+        $log = array(
+            'isi_log' => 'user melakukan reset password pada peminjam',
+            'log_idUser' => session()->get('id'),
+            
+        );
+
+        $model->simpan('log', $log);
+
+        return redirect()->to('/peminjam');
+
+        
+    }
 
 }
