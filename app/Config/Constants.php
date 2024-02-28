@@ -67,6 +67,7 @@ defined('DECADE') || define('DECADE', 315360000);
  |       http://tldp.org/LDP/abs/html/exitcodes.html
  |
  */
+defined('PUBLIC_PATH') || define('PUBLIC_PATH', ROOTPATH . 'public');
 defined('EXIT_SUCCESS')        || define('EXIT_SUCCESS', 0); // no errors
 defined('EXIT_ERROR')          || define('EXIT_ERROR', 1); // generic error
 defined('EXIT_CONFIG')         || define('EXIT_CONFIG', 3); // configuration error

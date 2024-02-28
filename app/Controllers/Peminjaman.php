@@ -24,7 +24,9 @@ class Peminjaman extends BaseController
         }
 
         $model = new M_model();
-        $data['data']= $model->tampil('buku');
+        $on="peminjaman.bukuID=buku.bukuID";
+        $on2="peminjaman.userID=user.id_user";
+        $data['data']= $model->super('peminjaman','buku','user',$on,$on2);
         $data['kategori']= $model->relasiKategori();
         echo view('peminjaman/peminjaman',$data);
         // print_r($data['kategori']);

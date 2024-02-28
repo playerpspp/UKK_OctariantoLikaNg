@@ -46,10 +46,15 @@
                             <a href="<?= base_url('/buku/Ulasan/'.$dataa->bukuID) ?>" class="btn btn-primary">
 										Ulasan
 									</a>
-
-									<a href="<?= base_url('/buku/Ulasan/'.$dataa->bukuID) ?>" class="btn btn-gray">
-										Ulasan
+									<?php if(empty($koleksi[$dataa->bukuID])) {?>
+									<a href="<?= base_url('/koleksi/tambahKoleksi/'.$dataa->bukuID) ?>" class="btn btn-info">
+										Masukan Ke Koleksi
 									</a>
+									<?php }else{ ?>
+										<a href="<?= base_url('/koleksi/hapusKoleksi/'.$koleksi[$dataa->bukuID]->koleksiID) ?>" class="btn btn-secondary">
+										hapus dari Koleksi
+									</a>
+									<?php }?>
                               
 									<a href="<?= base_url('/buku/edit/'.$dataa->bukuID) ?>" class="btn btn-warning">
 										Edit

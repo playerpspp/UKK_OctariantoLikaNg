@@ -32,7 +32,7 @@
                 </li>
                
 
-               <?php  if(session()->get('level')== 1){ ?>
+               <?php  if(session()->get('level')!= "peminjam"){ ?>
 
                 <li class="label">Laporan</li>
               <li><a href="/laporan"><i class="ti-book"></i> Laporan</a></li>

@@ -7,13 +7,11 @@
     <div class="col-lg-12">
         <div class="card">
         <div class="card-title">
-            <p>Tabel Pengawai</p>
+            <p>Tabel Koleksi Buku</p>
             </div>
 
         <div class="card-body">
-        <a href="<?= base_url('/buku/input')?>"> <button type="button" class="btn btn-success" >
-										Tambah buku
-									</button> </a>
+       
         <table id="bootstrap-data-table" class="table table-striped table-bordered">					<thead>
 						<tr>
 							<th style="text-align: center;" width="1000px">No.</th>
@@ -47,9 +45,9 @@
 										Ulasan
 									</a>
                               
-									<a href="<?= base_url('/koleksi/hapus/'.$dataa->bukuID)?>"><button type="button" class="btn btn-danger" >
-										Hapus dari Koleksi
-									</button> </a>
+									<a href="<?= base_url('/koleksi/hapus/'.$dataa->bukuID) ?>" class="btn btn-danger">
+										hapus dari Koleksi
+									</a>
 							</div>
                             </td>
 

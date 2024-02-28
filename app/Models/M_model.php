@@ -27,6 +27,26 @@ class M_model extends model
 		return $result;
 	}
 
+	public function koleksi($where)
+	{
+		$data = $this->db->table('koleksipribadi')
+						->getWhere($where)
+						->getResult();
+		$result = [];
+		foreach($data as $dataa){
+			$result[$dataa->bukuID]= $dataa;
+		}
+		return $result;
+	}
+
+	public function koleksiPribadi($where)
+	{
+		return $this->db->table('buku')
+		->whereIn('bukuID', $where)
+						->get()
+						->getResult();
+	}
+
 	public function relasiKategori_edit($id)
 	{
 		$data = $this->db->table('kategoribuku_relasi')
@@ -35,6 +55,16 @@ class M_model extends model
 						->getResult();
 		
 		return $data;
+	}
+
+	public function filterbuku($awal,$akhir)
+	{
+		$query = $this->db->table('buku')
+    ->where('buku.tanggal BETWEEN "'.$awal.'" AND "'.$akhir.'"')
+    ->get();
+
+return $query->getResult();
+
 	}
 
 
@@ -83,6 +113,16 @@ class M_model extends model
 		return $this->db->table($table1)->join($table2, $on)->get()->getResult();
 	}
 
+	public function super($table1, $table2, $table3, $on, $on2)
+	{
+		return $this->db->table($table1)->join($table2, $on)->join($table3, $on2)->get()->getResult();
+	}
+
+	public function super_w($table1, $table2, $table3, $on, $on2, $where)
+	{
+		return $this->db->table($table1)->join($table2, $on)->join($table3, $on2)->getWhere($where)->getResult();
+	}
+
 	public function fusionOderBy($table1, $table2, $on, $column)
 	{
 		return $this->db->table($table1)->join($table2, $on)->orderBy($column, 'DESC')->get()->getResult();
@@ -129,11 +169,5 @@ return $query->getResult();
 
 	}
 
-	public function super($table1, $table2, $table3, $on, $on2)
-	{
-		$primaryKey = $this->db->getFieldData($table1)[0]->name;
-		return $this->db->table($table1)->join($table2, $on)->join($table3, $on2)
-		->orderBy($primaryKey, 'desc')->get()->getResult();
-	}
 
 }
