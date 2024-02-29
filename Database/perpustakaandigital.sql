@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 29, 2024 at 05:17 AM
+-- Generation Time: Feb 29, 2024 at 05:28 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -49,7 +49,7 @@ INSERT INTO `buku` (`bukuID`, `judul`, `penulis`, `penerbit`, `tahunTerbit`, `st
 (6, 'Buku IPA Kelas 2', 'prof', 'erlangga', 2013, 1, '2024-02-29'),
 (7, 'Buku IPA Kelas 6', 'prof', 'erlangga', 2013, 1, '2024-02-29'),
 (8, 'Buku IPA Kelas 7', 'prof', 'Perm', 2013, 1, '2024-02-29'),
-(9, 'buku paket pelajaran kelas 5', 'novianta', 'erlangga', 2013, 3, '2024-02-29');
+(9, 'buku paket pelajaran kelas 5', 'novianta', 'erlangga', 2013, 0, '2024-02-29');
 
 -- --------------------------------------------------------
 
@@ -207,7 +207,17 @@ INSERT INTO `log` (`id_log`, `isi_log`, `log_idUser`, `tanggal_log`) VALUES
 (54, 'user menambahkan data buku', 1, '2024-02-29 10:21:54'),
 (55, 'user menambahkan data peminjaman', 1, '2024-02-29 11:03:22'),
 (56, 'user mengubah status peminjaman buku', 1, '2024-02-29 11:03:30'),
-(57, 'user menambahkan data buku', 1, '2024-02-29 11:12:46');
+(57, 'user menambahkan data buku', 1, '2024-02-29 11:12:46'),
+(58, 'user menambahkan data peminjaman', 1, '2024-02-29 11:24:02'),
+(59, 'user menambahkan data peminjaman', 1, '2024-02-29 11:24:09'),
+(60, 'user menambahkan data peminjaman', 1, '2024-02-29 11:24:19'),
+(61, 'user melakukan Log Out', 1, '2024-02-29 11:25:34'),
+(62, 'user melakukan Login', 6, '2024-02-29 11:25:41'),
+(63, 'user melakukan Log Out', 6, '2024-02-29 11:25:57'),
+(64, 'user melakukan Login', 1, '2024-02-29 11:26:02'),
+(65, 'user menambahkan data peminjam', 1, '2024-02-29 11:26:32'),
+(66, 'user melakukan Log Out', 1, '2024-02-29 11:26:37'),
+(67, 'user melakukan Login', 7, '2024-02-29 11:26:46');
 
 -- --------------------------------------------------------
 
@@ -230,7 +240,10 @@ CREATE TABLE `peminjaman` (
 
 INSERT INTO `peminjaman` (`peminjamanID`, `userID`, `bukuID_peminjaman`, `tanggalPeminjaman`, `tanggalPengembalian`, `statusPeminjaman`) VALUES
 (1, 1, 1, '2024-02-29', '2024-03-02', '2'),
-(4, 6, 1, '2024-02-29', '2024-03-01', '2');
+(4, 6, 1, '2024-02-29', '2024-03-01', '2'),
+(5, 6, 9, '2024-02-29', '2024-03-01', '1'),
+(6, 6, 9, '2024-02-29', '2024-03-01', '1'),
+(7, 6, 9, '2024-02-29', '2024-03-01', '1');
 
 --
 -- Triggers `peminjaman`
@@ -310,7 +323,8 @@ INSERT INTO `user` (`id_user`, `username`, `password`, `level`, `email`, `namaLe
 (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', 'admin@gmail.com', 'Naruto', 'Konoha'),
 (3, 'rere', '095e3a1cb5cbb579195f0a6eacc84483', 'petugas', 're@gmail.com', 'rere', 'rere'),
 (4, 'tes', '095e3a1cb5cbb579195f0a6eacc84483', 'peminjam', 'tes@gmail.com', 'te', 'tes'),
-(6, 'halo', '57f842286171094855e51fc3a541c1e2', 'peminjam', 'halo@gmail.com', 'halo', 'halo');
+(6, 'halo', '57f842286171094855e51fc3a541c1e2', 'peminjam', 'halo@gmail.com', 'halo', 'halo'),
+(7, 'esa', '095e3a1cb5cbb579195f0a6eacc84483', 'peminjam', 'es@gmail.com', 'esa', 'es');
 
 --
 -- Indexes for dumped tables
@@ -397,13 +411,13 @@ ALTER TABLE `koleksipribadi`
 -- AUTO_INCREMENT for table `log`
 --
 ALTER TABLE `log`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `peminjaman`
 --
 ALTER TABLE `peminjaman`
-  MODIFY `peminjamanID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `peminjamanID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `ulasanbuku`
@@ -415,7 +429,7 @@ ALTER TABLE `ulasanbuku`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
