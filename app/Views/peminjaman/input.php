@@ -19,8 +19,8 @@
                         class="form-control text-capitalize"  >
                         <option value="">-</option>
                         <?php foreach($data as $buku){
-                          if($buku->statusPeminjaman != 1) {  ?>
-                          <option value="<?= $buku->bukuID ?>"><?= $buku->judul?></option>
+                          if($buku->stok != 0) {  ?>
+                          <option value="<?= $buku->bukuID ?>"><?= $buku->judul?> tersisa <?= $buku->stok?></option>
                        <?php } } ?>
 </select>
                     </div>

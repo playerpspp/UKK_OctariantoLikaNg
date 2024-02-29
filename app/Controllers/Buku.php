@@ -125,6 +125,7 @@ class Buku extends BaseController
         $penulis=$this->request->getPost('penulis');
         $penerbit=$this->request->getPost('penerbit');
         $tahun=$this->request->getPost('tahun');
+        $stok=$this->request->getPost('stok');
         $kategori=$this->request->getPost('kategori');
         $maker_pegawai=session()->get('id');
 
@@ -133,6 +134,7 @@ class Buku extends BaseController
             'penulis'=>$penulis,
             'penerbit'=>$penerbit,
             'tahunTerbit'=>$tahun,
+            'stok'=>$stok,
         );
 
         $model=new M_model();

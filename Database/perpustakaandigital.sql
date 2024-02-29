@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 28 Feb 2024 pada 20.47
--- Versi server: 10.4.22-MariaDB
--- Versi PHP: 7.4.27
+-- Generation Time: Feb 29, 2024 at 04:26 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `buku`
+-- Table structure for table `buku`
 --
 
 CREATE TABLE `buku` (
@@ -37,16 +37,22 @@ CREATE TABLE `buku` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `buku`
+-- Dumping data for table `buku`
 --
 
 INSERT INTO `buku` (`bukuID`, `judul`, `penulis`, `penerbit`, `tahunTerbit`, `tanggal`) VALUES
-(1, 'buku paket pelajaran kelas 4', 'novianta', 'erlang', 2013, '2024-02-29');
+(1, 'buku paket pelajaran kelas 4', 'novianta', 'erlang', 2013, '2024-02-29'),
+(3, 'Buku IPS Kelas 5 SD', 'edy', 'erlangga', 2013, '2024-02-29'),
+(4, 'Buku IPA kelas 5', 'prof', 'erlangga', 2013, '2024-02-29'),
+(5, 'buku iPA kelas 1', 'prof', 'erlangga', 2013, '2024-02-29'),
+(6, 'Buku IPA Kelas 2', 'prof', 'erlangga', 2013, '2024-02-29'),
+(7, 'Buku IPA Kelas 6', 'prof', 'erlangga', 2013, '2024-02-29'),
+(8, 'Buku IPA Kelas 7', 'prof', 'Perm', 2013, '2024-02-29');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kategoribuku`
+-- Table structure for table `kategoribuku`
 --
 
 CREATE TABLE `kategoribuku` (
@@ -56,17 +62,17 @@ CREATE TABLE `kategoribuku` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `kategoribuku`
+-- Dumping data for table `kategoribuku`
 --
 
 INSERT INTO `kategoribuku` (`kategoriID`, `namaKategori`, `jumlah_buku`) VALUES
-(1, 'IPA', 1),
-(2, 'IPS', 1);
+(1, 'IPA', 6),
+(2, 'IPS', 2);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kategoribuku_relasi`
+-- Table structure for table `kategoribuku_relasi`
 --
 
 CREATE TABLE `kategoribuku_relasi` (
@@ -76,15 +82,21 @@ CREATE TABLE `kategoribuku_relasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `kategoribuku_relasi`
+-- Dumping data for table `kategoribuku_relasi`
 --
 
 INSERT INTO `kategoribuku_relasi` (`kategoriBukuID`, `bukuID`, `kategoriID`) VALUES
 (1, 1, 2),
-(2, 1, 1);
+(2, 1, 1),
+(5, 3, 2),
+(6, 4, 1),
+(7, 5, 1),
+(8, 6, 1),
+(9, 7, 1),
+(10, 8, 1);
 
 --
--- Trigger `kategoribuku_relasi`
+-- Triggers `kategoribuku_relasi`
 --
 DELIMITER $$
 CREATE TRIGGER `after delete` AFTER DELETE ON `kategoribuku_relasi` FOR EACH ROW BEGIN
@@ -108,7 +120,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `koleksipribadi`
+-- Table structure for table `koleksipribadi`
 --
 
 CREATE TABLE `koleksipribadi` (
@@ -120,18 +132,18 @@ CREATE TABLE `koleksipribadi` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `log`
+-- Table structure for table `log`
 --
 
 CREATE TABLE `log` (
-  `id_log` int(10) NOT NULL,
+  `id_log` int(11) NOT NULL,
   `isi_log` text NOT NULL,
   `log_idUser` int(10) NOT NULL,
   `tanggal_log` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `log`
+-- Dumping data for table `log`
 --
 
 INSERT INTO `log` (`id_log`, `isi_log`, `log_idUser`, `tanggal_log`) VALUES
@@ -164,27 +176,58 @@ INSERT INTO `log` (`id_log`, `isi_log`, `log_idUser`, `tanggal_log`) VALUES
 (27, 'user menghapus data buku', 1, '2024-02-28 14:42:29'),
 (28, 'user melakukan Login', 1, '2024-02-29 00:04:47'),
 (29, 'user melakukan Login', 6, '2024-02-29 01:25:41'),
-(30, 'user menghapus Koleksi', 1, '2024-02-29 02:13:52');
+(30, 'user menghapus Koleksi', 1, '2024-02-29 02:13:52'),
+(31, 'user melakukan Login', 1, '2024-02-29 07:56:22'),
+(32, 'user menambahkan data buku', 1, '2024-02-29 08:10:51'),
+(33, 'user menambahkan data buku', 1, '2024-02-29 08:11:39'),
+(34, 'user menambahkan data peminjaman', 1, '2024-02-29 08:48:30'),
+(35, 'user menambahkan data peminjaman', 1, '2024-02-29 08:49:04'),
+(36, 'user menambahkan data peminjaman', 1, '2024-02-29 08:49:22'),
+(37, 'user menambahkan data peminjaman', 1, '2024-02-29 08:51:04'),
+(38, 'user menghapus data peminjaman', 1, '2024-02-29 08:54:31'),
+(39, 'user mengubah status peminjaman buku', 1, '2024-02-29 08:54:36'),
+(40, 'user menambahkan data peminjaman', 1, '2024-02-29 09:02:00'),
+(41, 'user menghapus data peminjaman', 1, '2024-02-29 09:02:04'),
+(42, 'user menambahkan data peminjaman', 1, '2024-02-29 09:06:49'),
+(43, 'user melakukan Log Out', 1, '2024-02-29 09:16:05'),
+(44, 'user melakukan Login', 6, '2024-02-29 09:16:48'),
+(45, 'user menambahkan Koleksi', 6, '2024-02-29 09:18:30'),
+(46, 'user menambahkan Koleksi', 6, '2024-02-29 09:19:07'),
+(47, 'user menambahkan Koleksi', 6, '2024-02-29 09:19:50'),
+(48, 'user menghapus Koleksi', 6, '2024-02-29 09:19:55'),
+(49, 'user melakukan Log Out', 6, '2024-02-29 09:43:34'),
+(50, 'user melakukan Login', 1, '2024-02-29 10:01:12'),
+(51, 'user menambahkan data buku', 1, '2024-02-29 10:21:05'),
+(52, 'user menambahkan data buku', 1, '2024-02-29 10:21:17'),
+(53, 'user menambahkan data buku', 1, '2024-02-29 10:21:33'),
+(54, 'user menambahkan data buku', 1, '2024-02-29 10:21:54');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `peminjaman`
+-- Table structure for table `peminjaman`
 --
 
 CREATE TABLE `peminjaman` (
   `peminjamanID` int(11) NOT NULL,
   `userID` int(11) NOT NULL,
-  `bukuID` int(11) NOT NULL,
+  `bukuID_peminjaman` int(11) NOT NULL,
   `tanggalPeminjaman` date NOT NULL DEFAULT current_timestamp(),
   `tanggalPengembalian` date NOT NULL,
-  `statusPeminjaman` varchar(50) NOT NULL
+  `statusPeminjaman` varchar(50) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `peminjaman`
+--
+
+INSERT INTO `peminjaman` (`peminjamanID`, `userID`, `bukuID_peminjaman`, `tanggalPeminjaman`, `tanggalPengembalian`, `statusPeminjaman`) VALUES
+(1, 1, 1, '2024-02-29', '2024-03-02', '2');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `ulasanbuku`
+-- Table structure for table `ulasanbuku`
 --
 
 CREATE TABLE `ulasanbuku` (
@@ -197,7 +240,7 @@ CREATE TABLE `ulasanbuku` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `ulasanbuku`
+-- Dumping data for table `ulasanbuku`
 --
 
 INSERT INTO `ulasanbuku` (`ulasanID`, `userID`, `bukuID`, `ulasan`, `rating`, `tanggal`) VALUES
@@ -206,7 +249,7 @@ INSERT INTO `ulasanbuku` (`ulasanID`, `userID`, `bukuID`, `ulasan`, `rating`, `t
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -220,7 +263,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `level`, `email`, `namaLengkap`, `alamat`) VALUES
@@ -234,89 +277,102 @@ INSERT INTO `user` (`id_user`, `username`, `password`, `level`, `email`, `namaLe
 --
 
 --
--- Indeks untuk tabel `buku`
+-- Indexes for table `buku`
 --
 ALTER TABLE `buku`
   ADD PRIMARY KEY (`bukuID`);
 
 --
--- Indeks untuk tabel `kategoribuku`
+-- Indexes for table `kategoribuku`
 --
 ALTER TABLE `kategoribuku`
   ADD PRIMARY KEY (`kategoriID`);
 
 --
--- Indeks untuk tabel `kategoribuku_relasi`
+-- Indexes for table `kategoribuku_relasi`
 --
 ALTER TABLE `kategoribuku_relasi`
   ADD PRIMARY KEY (`kategoriBukuID`);
 
 --
--- Indeks untuk tabel `koleksipribadi`
+-- Indexes for table `koleksipribadi`
 --
 ALTER TABLE `koleksipribadi`
   ADD PRIMARY KEY (`koleksiID`);
 
 --
--- Indeks untuk tabel `log`
+-- Indexes for table `log`
 --
 ALTER TABLE `log`
   ADD PRIMARY KEY (`id_log`);
 
 --
--- Indeks untuk tabel `ulasanbuku`
+-- Indexes for table `peminjaman`
+--
+ALTER TABLE `peminjaman`
+  ADD PRIMARY KEY (`peminjamanID`);
+
+--
+-- Indexes for table `ulasanbuku`
 --
 ALTER TABLE `ulasanbuku`
   ADD PRIMARY KEY (`ulasanID`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id_user`);
+  ADD PRIMARY KEY (`id_user`),
+  ADD UNIQUE KEY `nama unik` (`namaLengkap`) USING HASH;
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `buku`
+-- AUTO_INCREMENT for table `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `bukuID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `bukuID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT untuk tabel `kategoribuku`
+-- AUTO_INCREMENT for table `kategoribuku`
 --
 ALTER TABLE `kategoribuku`
   MODIFY `kategoriID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `kategoribuku_relasi`
+-- AUTO_INCREMENT for table `kategoribuku_relasi`
 --
 ALTER TABLE `kategoribuku_relasi`
-  MODIFY `kategoriBukuID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `kategoriBukuID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT untuk tabel `koleksipribadi`
+-- AUTO_INCREMENT for table `koleksipribadi`
 --
 ALTER TABLE `koleksipribadi`
-  MODIFY `koleksiID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `koleksiID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `log`
+-- AUTO_INCREMENT for table `log`
 --
 ALTER TABLE `log`
-  MODIFY `id_log` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
--- AUTO_INCREMENT untuk tabel `ulasanbuku`
+-- AUTO_INCREMENT for table `peminjaman`
+--
+ALTER TABLE `peminjaman`
+  MODIFY `peminjamanID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `ulasanbuku`
 --
 ALTER TABLE `ulasanbuku`
   MODIFY `ulasanID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;

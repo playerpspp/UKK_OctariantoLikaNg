@@ -35,6 +35,12 @@
                     class="form-control text-capitalize" placeholder="Tahun Terbit" value="<?= $buku->tahunTerbit?>" >
                 </div>
 
+                <div class="mb-3 col-md-6">
+                    <label class="form-label     ">Stok<Stok style="color: red;">*</span></label>
+                    <input type="number" id="stok" name="stok" 
+                    class="form-control text-capitalize" placeholder="Stok" value="<?= $buku->stok?>" >
+                </div>
+
          
 
 

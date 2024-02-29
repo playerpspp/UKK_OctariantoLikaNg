@@ -44,7 +44,7 @@ class Peminjaman extends BaseController
 
         $model = new M_model();
         $on="buku.bukuID=peminjaman.bukuID_peminjaman";
-        $data['data']= $model->fusionleft('buku', 'peminjaman',$on);
+        $data['data']= $model->tampil('buku');
         $data['peminjam']= $model->getWhere('user',['level' => "peminjam"]);
         // print_r($data);
         echo view('peminjaman/input',$data);

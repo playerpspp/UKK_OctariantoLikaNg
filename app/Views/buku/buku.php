@@ -24,6 +24,8 @@
 							<th style="text-align: center;" width="1000px">Penerbit</th>
 							<th style="text-align: center;" width="1000px">Tahun Terbit</th>
                             <th style="text-align: center;" width="1000px">Kategori</th>
+							<th style="text-align: center;" width="1000px">Stok</th>
+
 							<th style="text-align: center;" width="1300px">Action</th>
 						</tr>
 					</thead>
@@ -42,6 +44,8 @@
                             <?php foreach($kategori[$dataa->bukuID] as $gori)
                             { echo $gori->namaKategori.", "; }?>
                         </td>
+						<td style="text-align: center;" class="text-capitalize"><?php echo $dataa->stok ?></td>
+
 							<td>
 							<div class="text-center mb-1">
 
