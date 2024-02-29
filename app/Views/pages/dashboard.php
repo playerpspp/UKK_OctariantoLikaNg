@@ -13,7 +13,9 @@
         <div class="card-body">
             <a href="/buku">        <button class="btn btn-primary">Daftar Buku</button></a>
             <a href="/peminjaman">  <button class="btn btn-danger">Melihat Peminjaman Buku</button></a>
+             <?php  if(session()->get('level')== "peminjam"){ ?>
             <a href="/koleksi">     <button class="btn btn-warning">Melihat Koleksi Pribadi Buku</button></a>
+            <?php }?>
           
             </div>
         </div>

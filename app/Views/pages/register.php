@@ -40,7 +40,7 @@
                           <button type="submit" class="btn btn-primary col-lg-4">Registrasi</button>
                       </form><br>
 
-                      <h4>Sudah punya akun?<a href="/home/login">Tekan Tulisan biru ini</a></h4>
+                      <h4>Sudah punya akun?<a href="/home">Tekan Tulisan biru ini</a></h4>
                   </div>
                   </div>
               </div>
