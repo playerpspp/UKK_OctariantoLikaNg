@@ -25,7 +25,7 @@
                     </div>
                     <div class="mb-3 col-md-6">
                         <label class="form-label">email<span style="color: red;">*</span></label>
-                        <input type="text" id="email" name="email" 
+                        <input type="email" id="email" name="email" 
                         class="form-control text-capitalize" placeholder="Email" autocomplete="on" >
                     </div>
                    
