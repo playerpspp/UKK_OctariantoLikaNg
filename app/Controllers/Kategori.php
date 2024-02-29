@@ -117,7 +117,7 @@ class Kategori extends BaseController
         $model=new M_model();
         $where2=array('kategoriID'=>$id);
 
-        $model->hapus('kategori',$where2);
+        $model->hapus('kategoribuku',$where2);
 
         $log = array(
             'isi_log' => 'user menghapus data pengawai',
