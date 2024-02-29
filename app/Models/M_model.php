@@ -125,10 +125,10 @@ return $query->getResult();
 		return $this->db->table($table1)->join($table2, $on)->orderBy($table1.".".$primaryKey, 'desc')->get()->getResult();
 	}
 
-	public function fusion_wDESC($table1, $table2, $on)
+	public function fusion_wDESC($table1, $table2, $on, $where)
 	{
 		$primaryKey = $this->db->getFieldData($table1)[0]->name;
-		return $this->db->table($table1)->join($table2, $on)->orderBy($table1.".".$primaryKey, 'desc')->get()->getResult();
+		return $this->db->table($table1)->join($table2, $on)->orderBy($table1.".".$primaryKey, 'desc')->getWhere($where)->getResult();
 	}
 
 		public function fusionleft($table1, $table2, $on)

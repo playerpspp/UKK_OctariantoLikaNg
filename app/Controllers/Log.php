@@ -23,7 +23,7 @@ class Log extends BaseController
         }
         $model= new M_model();
         $on='log.log_idUser=user.id_user';
-        if(session()->get('level') != "peminjam"){
+        if(session()->get('level')!= "peminjam"){
            
             $data['data']= $model->fusionDESC('log','user',$on);
             }else{
