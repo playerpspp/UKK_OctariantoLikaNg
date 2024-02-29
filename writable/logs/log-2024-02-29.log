@@ -9,3 +9,75 @@ CRITICAL - 2024-02-29 09:20:00 --> Too few arguments to function App\Models\M_mo
 #5 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\PC 21\\...')
 #6 {main}
 ERROR - 2024-02-29 23:44:12 --> Column 'log_idUser' cannot be null
+CRITICAL - 2024-02-29 23:52:57 --> Undefined array key 8
+#0 C:\UKK_OctariantoLikaNg\app\Views\buku\buku.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\UKK_Octarian...', 56)
+#1 C:\UKK_OctariantoLikaNg\system\View\View.php(210): include('C:\\UKK_Octarian...')
+#2 C:\UKK_OctariantoLikaNg\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\UKK_OctariantoLikaNg\system\Common.php(1089): CodeIgniter\View\View->render('buku/buku', Array, true)
+#4 C:\UKK_OctariantoLikaNg\app\Controllers\Buku.php(42): view('buku/buku', Array)
+#5 C:\UKK_OctariantoLikaNg\system\CodeIgniter.php(832): App\Controllers\Buku->index()
+#6 C:\UKK_OctariantoLikaNg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+#7 C:\UKK_OctariantoLikaNg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\UKK_OctariantoLikaNg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\UKK_OctariantoLikaNg\system\Commands\Server\rewrite.php(43): require_once('C:\\UKK_Octarian...')
+#10 {main}
+CRITICAL - 2024-02-29 23:52:57 --> Undefined array key 8
+#0 C:\UKK_OctariantoLikaNg\app\Views\buku\buku.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\UKK_Octarian...', 56)
+#1 C:\UKK_OctariantoLikaNg\system\View\View.php(210): include('C:\\UKK_Octarian...')
+#2 C:\UKK_OctariantoLikaNg\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\UKK_OctariantoLikaNg\system\Common.php(1089): CodeIgniter\View\View->render('buku/buku', Array, true)
+#4 C:\UKK_OctariantoLikaNg\app\Controllers\Buku.php(42): view('buku/buku', Array)
+#5 C:\UKK_OctariantoLikaNg\system\CodeIgniter.php(832): App\Controllers\Buku->index()
+#6 C:\UKK_OctariantoLikaNg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+#7 C:\UKK_OctariantoLikaNg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\UKK_OctariantoLikaNg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\UKK_OctariantoLikaNg\system\Commands\Server\rewrite.php(43): require_once('C:\\UKK_Octarian...')
+#10 {main}
+CRITICAL - 2024-02-29 23:52:57 --> Undefined array key 8
+#0 C:\UKK_OctariantoLikaNg\app\Views\buku\buku.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\UKK_Octarian...', 56)
+#1 C:\UKK_OctariantoLikaNg\system\View\View.php(210): include('C:\\UKK_Octarian...')
+#2 C:\UKK_OctariantoLikaNg\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\UKK_OctariantoLikaNg\system\Common.php(1089): CodeIgniter\View\View->render('buku/buku', Array, true)
+#4 C:\UKK_OctariantoLikaNg\app\Controllers\Buku.php(42): view('buku/buku', Array)
+#5 C:\UKK_OctariantoLikaNg\system\CodeIgniter.php(832): App\Controllers\Buku->index()
+#6 C:\UKK_OctariantoLikaNg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+#7 C:\UKK_OctariantoLikaNg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\UKK_OctariantoLikaNg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\UKK_OctariantoLikaNg\system\Commands\Server\rewrite.php(43): require_once('C:\\UKK_Octarian...')
+#10 {main}
+CRITICAL - 2024-02-29 23:52:57 --> Undefined array key 8
+#0 C:\UKK_OctariantoLikaNg\app\Views\buku\buku.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\UKK_Octarian...', 56)
+#1 C:\UKK_OctariantoLikaNg\system\View\View.php(210): include('C:\\UKK_Octarian...')
+#2 C:\UKK_OctariantoLikaNg\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\UKK_OctariantoLikaNg\system\Common.php(1089): CodeIgniter\View\View->render('buku/buku', Array, true)
+#4 C:\UKK_OctariantoLikaNg\app\Controllers\Buku.php(42): view('buku/buku', Array)
+#5 C:\UKK_OctariantoLikaNg\system\CodeIgniter.php(832): App\Controllers\Buku->index()
+#6 C:\UKK_OctariantoLikaNg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+#7 C:\UKK_OctariantoLikaNg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\UKK_OctariantoLikaNg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\UKK_OctariantoLikaNg\system\Commands\Server\rewrite.php(43): require_once('C:\\UKK_Octarian...')
+#10 {main}
+CRITICAL - 2024-02-29 23:52:57 --> Undefined array key 8
+#0 C:\UKK_OctariantoLikaNg\app\Views\buku\buku.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\UKK_Octarian...', 56)
+#1 C:\UKK_OctariantoLikaNg\system\View\View.php(210): include('C:\\UKK_Octarian...')
+#2 C:\UKK_OctariantoLikaNg\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\UKK_OctariantoLikaNg\system\Common.php(1089): CodeIgniter\View\View->render('buku/buku', Array, true)
+#4 C:\UKK_OctariantoLikaNg\app\Controllers\Buku.php(42): view('buku/buku', Array)
+#5 C:\UKK_OctariantoLikaNg\system\CodeIgniter.php(832): App\Controllers\Buku->index()
+#6 C:\UKK_OctariantoLikaNg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+#7 C:\UKK_OctariantoLikaNg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\UKK_OctariantoLikaNg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\UKK_OctariantoLikaNg\system\Commands\Server\rewrite.php(43): require_once('C:\\UKK_Octarian...')
+#10 {main}
+CRITICAL - 2024-02-29 23:53:41 --> Undefined array key 8
+#0 C:\UKK_OctariantoLikaNg\app\Views\buku\buku.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\UKK_Octarian...', 56)
+#1 C:\UKK_OctariantoLikaNg\system\View\View.php(210): include('C:\\UKK_Octarian...')
+#2 C:\UKK_OctariantoLikaNg\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\UKK_OctariantoLikaNg\system\Common.php(1089): CodeIgniter\View\View->render('buku/buku', Array, true)
+#4 C:\UKK_OctariantoLikaNg\app\Controllers\Buku.php(42): view('buku/buku', Array)
+#5 C:\UKK_OctariantoLikaNg\system\CodeIgniter.php(832): App\Controllers\Buku->index()
+#6 C:\UKK_OctariantoLikaNg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+#7 C:\UKK_OctariantoLikaNg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\UKK_OctariantoLikaNg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\UKK_OctariantoLikaNg\system\Commands\Server\rewrite.php(43): require_once('C:\\UKK_Octarian...')
+#10 {main}

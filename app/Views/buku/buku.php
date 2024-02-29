@@ -53,12 +53,12 @@
 										Ulasan
 									</a>
 									<?php  if(session()->get('level')== "peminjam"){ ?>
-									<?php if(empty($koleksi[$dataa->bukuID]  && session()->get('level') == "peminjam")) {?>
+									<?php if(empty($koleksi[$dataa->bukuID])) {?>
 									<a href="<?= base_url('/koleksi/tambahKoleksi/'.$dataa->bukuID) ?>" class="btn btn-info">
 										Masukan Ke Koleksi
 									</a>
-									<?php }elseif(empty($koleksi[$dataa->bukuID] && session()->get('level') == "peminjam")){ ?>
-										<a href="<?= base_url('/koleksi/hapusKoleksi/'.$dataa->koleksiID) ?>" class="btn btn-secondary">
+									<?php }elseif(!empty($koleksi[$dataa->bukuID] )){ ?>
+										<a href="<?= base_url('/koleksi/hapusKoleksi/'.$dataa->bukuID) ?>" class="btn btn-secondary">
 										hapus dari Koleksi
 									</a>
 									<?php } } ?>
