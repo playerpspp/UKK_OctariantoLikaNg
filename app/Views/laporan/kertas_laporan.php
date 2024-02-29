@@ -58,7 +58,8 @@
             <th class="text-center">Judul</th>
             <th class="text-center">Penulis</th>
             <th class="text-center">Penerbit</th>
-            <th class="text-center">Tahun Terbit</th>]
+            <th class="text-center">Tahun Terbit</th>
+            <th class="text-center">Stok</th>
             <th class="text-center">Tanggal</th>
           </tr>
         </thead>
@@ -76,6 +77,7 @@
               <td class="text-capitalize text-center"><?= $dataa->penerbit?></td>
               <td class="text-center text-capitalize"><?= $dataa->tahunTerbit?></td>
               <td class="text-center text-capitalize"><?= $dataa->tanggal?></td>
+              <td class="text-center text-capitalize"><?= $dataa->stok?></td>
             </tr>
 <?php } ?>
 
