@@ -141,7 +141,7 @@ class Home extends BaseController
     public function dashboard()
     {
         if (!$this->checkAuth()) {
-            return redirect()->to(base_url('/home'));
+            return redirect()->to(base_url('/home/logout'));
         }
 
         
