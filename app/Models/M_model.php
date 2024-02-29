@@ -88,6 +88,12 @@ return $query->getResult();
 		return $this->db->table($table)->getWhere($where)->getResult();
 	}
 
+	public function getWhereDESC($table, $where)
+	{
+		$primaryKey = $this->db->getFieldData($table)[0]->name;
+		return $this->db->table($table)->orderBy($primaryKey, 'desc')->getWhere($where)->getResult();
+	}
+
 	public function getRow($table, $where)
 	{
 		return $this->db->table($table)->getWhere($where)->getRow();
@@ -111,6 +117,30 @@ return $query->getResult();
 	public function fusion($table1, $table2, $on)
 	{
 		return $this->db->table($table1)->join($table2, $on)->get()->getResult();
+	}
+
+	public function fusionDESC($table1, $table2, $on)
+	{
+		$primaryKey = $this->db->getFieldData($table1)[0]->name;
+		return $this->db->table($table1)->join($table2, $on)->orderBy($table1.".".$primaryKey, 'desc')->get()->getResult();
+	}
+
+	public function fusion_wDESC($table1, $table2, $on)
+	{
+		$primaryKey = $this->db->getFieldData($table1)[0]->name;
+		return $this->db->table($table1)->join($table2, $on)->orderBy($table1.".".$primaryKey, 'desc')->get()->getResult();
+	}
+
+		public function fusionleft($table1, $table2, $on)
+	{
+		return $this->db->table($table1)->join($table2, $on, 'LEFT')->get()->getResult();
+	}
+	
+	
+
+	public function fusionleft_w($table1, $table2, $on , $where)
+	{
+		return $this->db->table($table1)->join($table2, $on, 'LEFT')->getWhere($where)->getResult();
 	}
 
 	public function super($table1, $table2, $table3, $on, $on2)

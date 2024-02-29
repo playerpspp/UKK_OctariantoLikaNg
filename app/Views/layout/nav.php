@@ -14,7 +14,7 @@
                         class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
                         <li><a href="<?= base_url('/pengawai')?>">Pengawai</a></li>
-                        <li><a href="<?= base_url('/peminjam')?>">peminjam</a></li>
+                        <li><a href="<?= base_url('/peminjam')?>">Peminjam</a></li>
                      </ul>
                  </li>
                  <?php  }else{}?>
@@ -24,8 +24,12 @@
                     class="sidebar-collapse-icon ti-angle-down"></span></a>
                     <ul>
                     <li><a href="<?= base_url('/buku')?>">Daftar Buku</a></li>
+                     <?php  if(session()->get('level')== "admin"){ ?>
                     <li><a href="<?= base_url('/Kategori')?>">Kategori Buku</a></li>
+                    <?php }?>
+                    <?php  if(session()->get('level')== "peminjam"){ ?>
                     <li><a href="<?= base_url('/koleksi')?>">Koleksi Buku</a></li>
+                    <?php }?>
                     <li><a href="<?= base_url('/peminjaman')?>">Peminjaman Buku</a></li>
                         
                     </ul>
@@ -42,6 +46,7 @@
               <br>
               <li class="label">Account</li>
               <li><a href="/Profile"><i class="ti-info-alt"></i> Profile</a></li>
+              <li><a href="/Log"><i class="ti-harddrives"></i> Log</a></li>
               <li><a href="/home/logout"><i class="ti-close"></i> Logout</a></li>
           </ul>
       </div>

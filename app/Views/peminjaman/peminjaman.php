@@ -7,21 +7,28 @@
     <div class="col-lg-12">
         <div class="card">
         <div class="card-title">
-            <p>Tabel Pengawai</p>
+            <p>Tabel Peminjaman</p>
             </div>
 
         <div class="card-body">
-        <a href="<?= base_url('/buku/input')?>"> <button type="button" class="btn btn-success" >
-										Tambah buku
+			<?php  if(session()->get('level')!= "peminjam"){ ?>
+        <a href="<?= base_url('/peminjaman/input')?>"> <button type="button" class="btn btn-success" >
+										Tambah Peminjaman
 									</button> </a>
-        <table id="bootstrap-data-table" class="table table-striped table-bordered">					<thead>
+									<?php } ?>
+		<?php  if(session()->get('level')!= "peminjam"){ ?>
+        <table id="bootstrap-data-table-export" class="table table-striped table-bordered">	
+		<?php  }else{?>	
+			<table id="bootstrap-data-table" class="table table-striped table-bordered">	
+				<?php } ?>
+			<thead>
 						<tr>
 							<th style="text-align: center;" width="1000px">No.</th>
 							<th style="text-align: center;" width="1000px">Judul</th>
-							<th style="text-align: center;" width="1000px">Penulis</th>
-							<th style="text-align: center;" width="1000px">Penerbit</th>
-							<th style="text-align: center;" width="1000px">Tahun Terbit</th>
-                            <th style="text-align: center;" width="1000px">Kategori</th>
+							<th style="text-align: center;" width="1000px">Peminjam</th>
+							<th style="text-align: center;" width="1000px">Tanggal Peminjaman</th>
+							<th style="text-align: center;" width="1000px">Tanggal Pengembalian</th>
+                            <th style="text-align: center;" width="1000px">Status</th>
 							<th style="text-align: center;" width="1300px">Action</th>
 						</tr>
 					</thead>
@@ -32,25 +39,24 @@
 						<tr>
 							<td style="text-align: center;" class="text-capitalize"><?php echo $no++ ?></td>
 							<td style="text-align: center;" class="text-capitalize"><?php echo $dataa->judul ?></td>
-							<td style="text-align: center;" class="text-capitalize"><?php echo $dataa->penulis ?></td>
-							<td style="text-align: center;" class="text-capitalize"><?php echo $dataa->penerbit ?></td>
-							<td style="text-align: center;" class="text-capitalize"><?php echo $dataa->tahunTerbit ?></td>
+							<td style="text-align: center;" class="text-capitalize"><?php echo $dataa->namaLengkap ?></td>
+							<td style="text-align: center;" class="text-capitalize"><?php echo $dataa->tanggalPeminjaman ?></td>
+							<td style="text-align: center;" class="text-capitalize"><?php echo $dataa->tanggalPengembalian ?></td>
                             <td style="text-align: center;" class="text-capitalize">
                             
-                            <?php foreach($kategori[$dataa->bukuID] as $gori)
-                            { echo $gori->namaKategori.", "; }?>
+                            <?php if($dataa->statusPeminjaman == 1)
+                            { echo "Belum Dikembalikan"; }elseif($dataa->statusPeminjaman == 2){
+								echo "Sudah Dikembalikan";
+							} ?>
                         </td>
 							<td>
 							<div class="text-center mb-1">
-
-                            <a href="<?= base_url('/buku/Ulasan/'.$dataa->bukuID) ?>" class="btn btn-warning">
-										Ulasan
+							<?php if($dataa->statusPeminjaman == 1){?>
+									<a href="<?= base_url('/peminjaman/pengembalian/'.$dataa->peminjamanID ) ?>" class="btn btn-warning">
+										Pengembalian
 									</a>
-                              
-									<a href="<?= base_url('/buku/edit/'.$dataa->bukuID) ?>" class="btn btn-warning">
-										Edit
-									</a>
-									<a href="<?= base_url('/buku/hapus/'.$dataa->bukuID)?>"><button type="button" class="btn btn-danger" >
+							<?php } ?>
+									<a href="<?= base_url('/peminjaman/hapus/'.$dataa->peminjamanID )?>"><button type="button" class="btn btn-danger" >
 										Delete
 									</button> </a>
 							</div>

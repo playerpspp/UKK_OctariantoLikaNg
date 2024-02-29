@@ -7,7 +7,7 @@
     <div class="col-lg-12">
         <div class="card">
         <div class="card-title">
-            <p>Tabel Peminjam</p>
+            <p>Tabel Pengawai</p>
             </div>
 
         <div class="card-body">
@@ -18,10 +18,9 @@
 						<tr>
 							<th style="text-align: center;" width="1000px">No.</th>
 							<th style="text-align: center;" width="1000px">Nama Lengkap</th>
-							<th style="text-align: center;" width="1000px">Email</th>
-							<th style="text-align: center;" width="1000px">Alamat</th>
-							<th style="text-align: center;" width="1000px">Username</th>
-							<th style="text-align: center;" width="1300px">Action</th>
+							<th style="text-align: center;" width="1000px">Log</th>
+							<th style="text-align: center;" width="1000px">Tanggal dan Waktu</th>
+						
 						</tr>
 					</thead>
 					<tbody>
@@ -31,21 +30,10 @@
 						<tr>
 							<td style="text-align: center;" class="text-capitalize"><?php echo $no++ ?></td>
 							<td style="text-align: center;" class="text-capitalize"><?php echo $dataa->namaLengkap ?></td>
-							<td style="text-align: center;" class="text-capitalize"><?php echo $dataa->email ?></td>
-							<td style="text-align: center;" class="text-capitalize"><?php echo $dataa->alamat ?></td>
-							<td style="text-align: center;" class="text-capitalize"><?php echo $dataa->username ?></td>
-							<td>
-							<div class="text-center mb-1">
-                               <a href="<?= base_url('/peminjam/reset_password/'.$dataa->id_user)?>"> <button type="button" class="btn btn-info" >
-										Reset Password
-									</button> </a>
-									<a href="<?= base_url('/peminjam/edit/'.$dataa->id_user) ?>" class="btn btn-warning">
-										Edit
-									</a>
-									<a href="<?= base_url('/peminjam/hapus/'.$dataa->id_user)?>"><button type="button" class="btn btn-danger" >
-										Delete
-									</button> </a>
-							</div>
+							<td style="text-align: center;" class="text-capitalize"><?php echo $dataa->isi_log ?></td>
+							<td style="text-align: center;" class="text-capitalize"><?php echo $dataa->tanggal_log ?></td>
+							
+							
                             </td>
 
                            

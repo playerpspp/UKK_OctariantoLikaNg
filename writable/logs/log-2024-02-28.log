@@ -415,3 +415,24 @@ CRITICAL - 2024-02-28 13:38:56 --> You must set the database table to be used wi
 #6 C:\UKK_OctariantoLikaNg\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #7 C:\UKK_OctariantoLikaNg\system\Commands\Server\rewrite.php(43): require_once('C:\\UKK_Octarian...')
 #8 {main}
+CRITICAL - 2024-02-28 19:21:19 --> syntax error, unexpected end of file
+#0 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\system\Common.php(1089): CodeIgniter\View\View->render('peminjaman/inpu...', Array, true)
+#2 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\app\Controllers\Peminjaman.php(48): view('peminjaman/inpu...', Array)
+#3 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\system\CodeIgniter.php(832): App\Controllers\Peminjaman->input()
+#4 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+#5 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\PC 21\\...')
+#8 {main}
+ERROR - 2024-02-28 19:48:30 --> Unknown column 'userID' in 'field list'
+ERROR - 2024-02-28 19:49:04 --> Unknown column 'bukuID_peminjaman' in 'field list'
+ERROR - 2024-02-28 19:49:22 --> Unknown column 'bukuID_peminjaman' in 'field list'
+CRITICAL - 2024-02-28 20:01:43 --> syntax error, unexpected ')'
+#0 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\system\Router\Router.php(175): CodeIgniter\Router\Router->autoRoute('peminjaman/inpu...')
+#1 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\system\CodeIgniter.php(726): CodeIgniter\Router\Router->handle('peminjaman/inpu...')
+#2 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\PC 21\\...')
+#6 {main}

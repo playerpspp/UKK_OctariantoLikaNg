@@ -7,13 +7,15 @@
     <div class="col-lg-12">
         <div class="card">
         <div class="card-title">
-            <p>Tabel Pengawai</p>
+            <p>Tabel Buku</p>
             </div>
 
         <div class="card-body">
+			<?php  if(session()->get('level')!= "peminjam"){ ?>
         <a href="<?= base_url('/buku/input')?>"> <button type="button" class="btn btn-success" >
 										Tambah buku
 									</button> </a>
+									<?php } ?>
         <table id="bootstrap-data-table" class="table table-striped table-bordered">					<thead>
 						<tr>
 							<th style="text-align: center;" width="1000px">No.</th>
@@ -46,6 +48,7 @@
                             <a href="<?= base_url('/buku/Ulasan/'.$dataa->bukuID) ?>" class="btn btn-primary">
 										Ulasan
 									</a>
+									<?php  if(session()->get('level')== "peminjam"){ ?>
 									<?php if(empty($koleksi[$dataa->bukuID])) {?>
 									<a href="<?= base_url('/koleksi/tambahKoleksi/'.$dataa->bukuID) ?>" class="btn btn-info">
 										Masukan Ke Koleksi
@@ -54,14 +57,15 @@
 										<a href="<?= base_url('/koleksi/hapusKoleksi/'.$koleksi[$dataa->bukuID]->koleksiID) ?>" class="btn btn-secondary">
 										hapus dari Koleksi
 									</a>
-									<?php }?>
-                              
+									<?php } } ?>
+									<?php  if(session()->get('level')!= "peminjam"){ ?>
 									<a href="<?= base_url('/buku/edit/'.$dataa->bukuID) ?>" class="btn btn-warning">
 										Edit
 									</a>
 									<a href="<?= base_url('/buku/hapus/'.$dataa->bukuID)?>"><button type="button" class="btn btn-danger" >
 										Delete
 									</button> </a>
+									<?php } ?>
 							</div>
                             </td>
 

@@ -10,7 +10,7 @@ class Peminjaman extends BaseController
     {
         $id_user = session()->get('id');
         $level = session()->get('level');
-        if ($id_user != null && $level == 'admin') {
+        if ($id_user != null) {
             return true;
         } else {
             return false;
@@ -24,10 +24,14 @@ class Peminjaman extends BaseController
         }
 
         $model = new M_model();
-        $on="peminjaman.bukuID=buku.bukuID";
+        $on="peminjaman.bukuID_peminjaman=buku.bukuID";
         $on2="peminjaman.userID=user.id_user";
+        if(session()->get('level') != "peminjam"){
         $data['data']= $model->super('peminjaman','buku','user',$on,$on2);
-        $data['kategori']= $model->relasiKategori();
+        }else{
+            $data['data']= $model->super_w('peminjaman','buku','user',$on,$on2, ['userID' => session()->get('id')]);
+        }
+        // $data['kategori']= $model->relasiKategori();
         echo view('peminjaman/peminjaman',$data);
         // print_r($data['kategori']);
     }
@@ -39,7 +43,10 @@ class Peminjaman extends BaseController
         }
 
         $model = new M_model();
-        $data['data']= $model->tampil('kategoribuku');
+        $on="buku.bukuID=peminjaman.bukuID_peminjaman";
+        $data['data']= $model->fusionleft('buku', 'peminjaman',$on);
+        $data['peminjam']= $model->getWhere('user',['level' => "peminjam"]);
+        // print_r($data);
         echo view('peminjaman/input',$data);
     }
 
@@ -52,37 +59,24 @@ class Peminjaman extends BaseController
         // print_r($this->request->getPost('kategori'));
 
        
-        $judul=$this->request->getPost('judul');
-        $penulis=$this->request->getPost('penulis');
-        $penerbit=$this->request->getPost('penerbit');
-        $tahun=$this->request->getPost('tahun');
-        $kategori=$this->request->getPost('kategori');
+        $bukuID=$this->request->getPost('bukuID');
+        $userID=$this->request->getPost('peminjam');
+        $pengembalian=$this->request->getPost('pengembalian');
         $maker_pegawai=session()->get('id');
 
-        $buku=array(
-            'judul'=>$judul,
-            'penulis'=>$penulis,
-            'penerbit'=>$penerbit,
-            'tahunTerbit'=>$tahun,
+        $peminjaman=array(
+            'bukuID_peminjaman'=>$bukuID,
+            'userID'=>$userID,
+            'tanggalPengembalian'=>$pengembalian,
         );
 
         $model=new M_model();
-        $model->simpan('buku', $buku);
-        $cek= $model->getRowArray('buku', $buku);
-
-        foreach($kategori as $gori) {
-            $kategori=array(
-                'bukuID'=>$cek['bukuID'],
-                'kategoriID'=>$gori,
-               
-            );
-            $model->simpan('kategoribuku_relasi', $kategori);
-
-        }
+        $model->simpan('peminjaman', $peminjaman);
+        // print_r($buku);
 
         
         $log = array(
-            'isi_log' => 'user menambahkan data buku',
+            'isi_log' => 'user menambahkan data peminjaman',
             'log_idUser' => $maker_pegawai,
             
         );
@@ -92,46 +86,24 @@ class Peminjaman extends BaseController
 
     }
 
-
-    public function edit($id)
-    {
-         if (!$this->checkAuth()) {
-            return redirect()->to(base_url('/home/dashboard'));
-        }
-
-        $model = new M_model();
-        $data['buku']= $model->getRow('buku',['bukuID ' => $id]);
-        echo view('peminjaman/edit',$data);
-    }
-
-    public function aksi_edit()
+    public function pengembalian($id)
     {
         if (!$this->checkAuth()) {
             return redirect()->to(base_url('/home/dashboard'));
         }
-        $id= $this->request->getPost('id');    
-        $judul=$this->request->getPost('judul');
-        $penulis=$this->request->getPost('penulis');
-        $penerbit=$this->request->getPost('penerbit');
-        $tahun=$this->request->getPost('tahun');
-        $kategori=$this->request->getPost('kategori');
-        $maker_pegawai=session()->get('id');
 
-        $buku=array(
-            'judul'=>$judul,
-            'penulis'=>$penulis,
-            'penerbit'=>$penerbit,
-            'tahunTerbit'=>$tahun,
+        $peminjaman=array(
+            'statusPeminjaman'=> 2,
         );
 
         $model=new M_model();
-        $model->edit('buku', $buku, ['bukuID' => $id]);
+        $model->edit('peminjaman', $peminjaman, ['peminjamanID' => $id]);
       
 
         
         $log = array(
-            'isi_log' => 'user menambahkan data buku',
-            'log_idUser' => $maker_pegawai,
+            'isi_log' => 'user mengubah status peminjaman buku',
+            'log_idUser' => session()->get('id'),
             
         );
 
@@ -148,13 +120,12 @@ class Peminjaman extends BaseController
     }
 
         $model=new M_model();
-        $where2=array('bukuID'=>$id);
+        $where2=array('peminjamanID'=>$id);
 
-        $model->hapus('buku',$where2);
-        $model->hapus('kategoribuku_relasi',$where2);
+        $model->hapus('peminjaman',$where2);
 
         $log = array(
-            'isi_log' => 'user menghapus data buku',
+            'isi_log' => 'user menghapus data peminjaman',
             'log_idUser' => session()->get('id'),
             
         );

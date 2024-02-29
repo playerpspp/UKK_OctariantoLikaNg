@@ -1,0 +1,10 @@
+ERROR - 2024-02-29 09:18:30 --> Unknown column 'bukuID' in 'field list'
+ERROR - 2024-02-29 09:19:07 --> Column 'bukuID' cannot be null
+CRITICAL - 2024-02-29 09:20:00 --> Too few arguments to function App\Models\M_model::super_w(), 5 passed in C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\app\Controllers\Peminjaman.php on line 32 and exactly 6 expected
+#0 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\app\Controllers\Peminjaman.php(32): App\Models\M_model->super_w('peminjaman', 'buku', 'user', 'peminjaman.buku...', 'peminjaman.user...')
+#1 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\system\CodeIgniter.php(832): App\Controllers\Peminjaman->index()
+#2 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+#3 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\PC 21\\...')
+#6 {main}

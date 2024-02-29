@@ -10,7 +10,7 @@ class Koleksi extends BaseController
     {
         $id_user = session()->get('id');
         $level = session()->get('level');
-        if ($id_user != null && $level == 'admin') {
+        if ($id_user != null) {
             return true;
         } else {
             return false;
@@ -50,13 +50,13 @@ class Koleksi extends BaseController
        
         $id=session()->get('id');
 
-        $user=array(
-            'bukuID'=>$$idbuku,
+        $koleksi=array(
+            'bukuID'=>$idbuku,
             'userID'=> $id
         );
 
         $model=new M_model();
-        $model->simpan('user', $user);
+        $model->simpan('koleksipribadi', $koleksi);
         
         $log = array(
             'isi_log' => 'user menambahkan Koleksi',

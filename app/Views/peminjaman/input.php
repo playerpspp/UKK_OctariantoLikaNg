@@ -8,45 +8,65 @@
 
     <div class="card">
         <div class="card-body">
-        <a href="<?= base_url('/Buku')?>" class="btn btn-primary">Kembali</a></button>
+        <a href="<?= base_url('/Peminjaman')?>" class="btn btn-primary">Kembali</a></button>
             <div class="basic-form">
-                <form id="userForm" class="form-horizontal form-label-left" novalidate  action="<?= base_url('buku/aksi_input')?>" method="post">
+                <form id="userForm" class="form-horizontal form-label-left" novalidate  action="<?= base_url('peminjaman/aksi_input')?>" method="post">
 
                  <div class="row">
                     <div class="mb-3 col-md-6">
                         <label class="form-label">Judul Buku<span style="color: red;">*</span></label>
-                        <input type="text" id="judul" name="judul" 
-                        class="form-control text-capitalize" placeholder="Judul" >
+                        <select id="bukuID" name="bukuID" 
+                        class="form-control text-capitalize"  >
+                        <option value="">-</option>
+                        <?php foreach($data as $buku){
+                          if($buku->statusPeminjaman != 1) {  ?>
+                          <option value="<?= $buku->bukuID ?>"><?= $buku->judul?></option>
+                       <?php } } ?>
+</select>
                     </div>
                     <div class="mb-3 col-md-6">
-                        <label class="form-label">Penulis Buku<span style="color: red;">*</span></label>
-                        <input type="text" id="penulis" name="penulis" 
-                        class="form-control text-capitalize" placeholder="Penulis" autocomplete="on" >
+                        <label class="form-label">Nama Lengkap Peminjam Buku<span style="color: red;">*</span></label>
+                        <select type="text" id="peminjam" name="peminjam" 
+                        class="form-control text-capitalize" autocomplete="on" >
+                        <option value="">-</option>
+                        <?php foreach($peminjam as $pinjam){ ?>
+                          <option value="<?= $pinjam->id_user?>"><?= $pinjam->namaLengkap?></option>
+                       <?php } ?>
+                          </select>
                     </div>
                     <div class="mb-3 col-md-6">
-                        <label class="form-label">Penerbit<span style="color: red;">*</span></label>
-                        <input type="text" id="penerbit" name="penerbit" 
-                        class="form-control text-capitalize" placeholder="Penerbit" autocomplete="on" >
-                    </div>
-                   
-                    <div class="mb-3 col-md-6">
-                    <label class="form-label     ">Tahun terbit<span style="color: red;">*</span></label>
-                    <input type="text" id="tahun" name="tahun" 
-                    class="form-control text-capitalize" placeholder="Tahun Terbit" >
-                </div>
-
-           
-                <div class="mb-3 col-md-6">
-    <label class="form-label">kategori<span style="color: red;">*</span></label><br>
-    <?php foreach($data as $dataa) {?>
-        <input type="checkbox" id="kategori"  value="<?= $dataa->kategoriID ?>" name="kategori[]" required="required"><?= $dataa->namaKategori?><br>
-    <?php }?>
+    <label class="form-label">Tanggal Pengembalian<span style="color: red;">*</span></label>
+    <input type="date" id="pengembalian" name="pengembalian" 
+           class="form-control text-capitalize" placeholder="Tanggal Pengembalian" autocomplete="on">
 </div>
+
+<script>
+    // Get today's date
+    var today = new Date();
+
+    // Set the minimum date to the next day
+    today.setDate(today.getDate() + 1);
+    var minDate = today.toISOString().split('T')[0]; // Format: YYYY-MM-DD
+
+    // Set the maximum date to 30 days or next month
+    var maxDate = new Date(today);
+    maxDate.setDate(maxDate.getDate() + 30);
+    if (maxDate.getMonth() != today.getMonth()) { // If next month
+        maxDate = new Date(today.getFullYear(), today.getMonth() + 1, 0); // Last day of current month
+    }
+    maxDate = maxDate.toISOString().split('T')[0]; // Format: YYYY-MM-DD
+
+    // Set the minimum and maximum attributes of the input element
+    document.getElementById('pengembalian').setAttribute('min', minDate);
+    document.getElementById('pengembalian').setAttribute('max', maxDate);
+</script>
+           
+              
 
               </div>
           </div>
          
-          <button type="submit" id="updateButton" class="btn btn-success">input Data</button>
+          <button type="submit" id="SubmitButton" class="btn btn-success">input Data</button>
       </form>
   </div>
 </div>
