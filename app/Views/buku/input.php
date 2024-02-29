@@ -35,6 +35,12 @@
                     class="form-control text-capitalize" placeholder="Tahun Terbit" >
                 </div>
 
+                <div class="mb-3 col-md-6">
+                    <label class="form-label     ">Stok<Stok style="color: red;">*</span></label>
+                    <input type="number" id="stok" name="stok" 
+                    class="form-control text-capitalize" placeholder="Stok"  >
+                </div>
+
            
                 <div class="mb-3 col-md-6">
     <label class="form-label">kategori<span style="color: red;">*</span></label><br>
