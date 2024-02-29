@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 29, 2024 at 04:26 AM
+-- Generation Time: Feb 29, 2024 at 05:17 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -33,6 +33,7 @@ CREATE TABLE `buku` (
   `penulis` varchar(255) NOT NULL,
   `penerbit` varchar(255) NOT NULL,
   `tahunTerbit` int(11) NOT NULL,
+  `stok` int(10) NOT NULL DEFAULT 1,
   `tanggal` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -40,14 +41,15 @@ CREATE TABLE `buku` (
 -- Dumping data for table `buku`
 --
 
-INSERT INTO `buku` (`bukuID`, `judul`, `penulis`, `penerbit`, `tahunTerbit`, `tanggal`) VALUES
-(1, 'buku paket pelajaran kelas 4', 'novianta', 'erlang', 2013, '2024-02-29'),
-(3, 'Buku IPS Kelas 5 SD', 'edy', 'erlangga', 2013, '2024-02-29'),
-(4, 'Buku IPA kelas 5', 'prof', 'erlangga', 2013, '2024-02-29'),
-(5, 'buku iPA kelas 1', 'prof', 'erlangga', 2013, '2024-02-29'),
-(6, 'Buku IPA Kelas 2', 'prof', 'erlangga', 2013, '2024-02-29'),
-(7, 'Buku IPA Kelas 6', 'prof', 'erlangga', 2013, '2024-02-29'),
-(8, 'Buku IPA Kelas 7', 'prof', 'Perm', 2013, '2024-02-29');
+INSERT INTO `buku` (`bukuID`, `judul`, `penulis`, `penerbit`, `tahunTerbit`, `stok`, `tanggal`) VALUES
+(1, 'buku paket pelajaran kelas 4', 'novianta', 'erlang', 2013, 1, '2024-02-29'),
+(3, 'Buku IPS Kelas 5 SD', 'edy', 'erlangga', 2013, 1, '2024-02-29'),
+(4, 'Buku IPA kelas 5', 'prof', 'erlangga', 2013, 1, '2024-02-29'),
+(5, 'buku iPA kelas 1', 'prof', 'erlangga', 2013, 1, '2024-02-29'),
+(6, 'Buku IPA Kelas 2', 'prof', 'erlangga', 2013, 1, '2024-02-29'),
+(7, 'Buku IPA Kelas 6', 'prof', 'erlangga', 2013, 1, '2024-02-29'),
+(8, 'Buku IPA Kelas 7', 'prof', 'Perm', 2013, 1, '2024-02-29'),
+(9, 'buku paket pelajaran kelas 5', 'novianta', 'erlangga', 2013, 3, '2024-02-29');
 
 -- --------------------------------------------------------
 
@@ -66,8 +68,8 @@ CREATE TABLE `kategoribuku` (
 --
 
 INSERT INTO `kategoribuku` (`kategoriID`, `namaKategori`, `jumlah_buku`) VALUES
-(1, 'IPA', 6),
-(2, 'IPS', 2);
+(1, 'IPA', 7),
+(2, 'IPS', 3);
 
 -- --------------------------------------------------------
 
@@ -93,7 +95,9 @@ INSERT INTO `kategoribuku_relasi` (`kategoriBukuID`, `bukuID`, `kategoriID`) VAL
 (7, 5, 1),
 (8, 6, 1),
 (9, 7, 1),
-(10, 8, 1);
+(10, 8, 1),
+(11, 9, 2),
+(12, 9, 1);
 
 --
 -- Triggers `kategoribuku_relasi`
@@ -200,7 +204,10 @@ INSERT INTO `log` (`id_log`, `isi_log`, `log_idUser`, `tanggal_log`) VALUES
 (51, 'user menambahkan data buku', 1, '2024-02-29 10:21:05'),
 (52, 'user menambahkan data buku', 1, '2024-02-29 10:21:17'),
 (53, 'user menambahkan data buku', 1, '2024-02-29 10:21:33'),
-(54, 'user menambahkan data buku', 1, '2024-02-29 10:21:54');
+(54, 'user menambahkan data buku', 1, '2024-02-29 10:21:54'),
+(55, 'user menambahkan data peminjaman', 1, '2024-02-29 11:03:22'),
+(56, 'user mengubah status peminjaman buku', 1, '2024-02-29 11:03:30'),
+(57, 'user menambahkan data buku', 1, '2024-02-29 11:12:46');
 
 -- --------------------------------------------------------
 
@@ -222,7 +229,40 @@ CREATE TABLE `peminjaman` (
 --
 
 INSERT INTO `peminjaman` (`peminjamanID`, `userID`, `bukuID_peminjaman`, `tanggalPeminjaman`, `tanggalPengembalian`, `statusPeminjaman`) VALUES
-(1, 1, 1, '2024-02-29', '2024-03-02', '2');
+(1, 1, 1, '2024-02-29', '2024-03-02', '2'),
+(4, 6, 1, '2024-02-29', '2024-03-01', '2');
+
+--
+-- Triggers `peminjaman`
+--
+DELIMITER $$
+CREATE TRIGGER `after delete peminjaman` AFTER DELETE ON `peminjaman` FOR EACH ROW BEGIN
+    IF OLD.statusPeminjaman = 1 THEN
+        UPDATE buku
+        SET stok = stok + 1
+        WHERE bukuID = OLD.bukuID_peminjaman;
+    END IF;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `after insert peminjaman` AFTER INSERT ON `peminjaman` FOR EACH ROW BEGIN
+    UPDATE buku
+    SET stok = stok - 1
+    WHERE bukuID = NEW.bukuID_peminjaman;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `after update peminjaman` AFTER UPDATE ON `peminjaman` FOR EACH ROW BEGIN
+    IF NEW.statusPeminjaman = 2 THEN
+        UPDATE buku
+        SET stok = stok + 1
+        WHERE bukuID = NEW.bukuID_peminjaman;
+    END IF;
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -333,7 +373,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `bukuID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `bukuID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `kategoribuku`
@@ -345,7 +385,7 @@ ALTER TABLE `kategoribuku`
 -- AUTO_INCREMENT for table `kategoribuku_relasi`
 --
 ALTER TABLE `kategoribuku_relasi`
-  MODIFY `kategoriBukuID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `kategoriBukuID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `koleksipribadi`
@@ -357,13 +397,13 @@ ALTER TABLE `koleksipribadi`
 -- AUTO_INCREMENT for table `log`
 --
 ALTER TABLE `log`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `peminjaman`
 --
 ALTER TABLE `peminjaman`
-  MODIFY `peminjamanID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `peminjamanID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `ulasanbuku`
