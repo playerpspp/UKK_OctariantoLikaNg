@@ -139,7 +139,7 @@ class Pengawai extends BaseController
 
         $log = array(
             'isi_log' => 'user menghapus data pengawai',
-            'log_idUser' => $maker_pegawai,
+            'log_idUser' => session()->get('id'),
             
         );
 

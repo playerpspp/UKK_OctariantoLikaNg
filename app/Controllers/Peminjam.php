@@ -138,7 +138,7 @@ class Peminjam extends BaseController
 
         $log = array(
             'isi_log' => 'user menghapus data peminjam',
-            'log_idUser' => $maker_pegawai,
+            'log_idUser' => session()->get('id'),
             
         );
 
