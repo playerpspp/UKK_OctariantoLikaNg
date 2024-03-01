@@ -12,7 +12,7 @@
                         <?php if(!empty($error)) { 
                         implode('', $errors->all('<div style="color: red;">:message</div>')); 
                         } ?>
-                        <form action="/home/aksi_registrasi" method="POST">
+                        <form action="/home/aksi_registrasi" autocomplete="off" method="POST">
                             <div class="form-group">
                                 <label>Nama Lengkap :</label>
                                 <input type="text" id="namaLengkap" name="namaLengkap" class="form-control" placeholder="Nama Lengkap">

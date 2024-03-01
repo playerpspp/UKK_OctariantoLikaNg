@@ -12,7 +12,7 @@
                         <?php if(!empty($error)) { 
                         implode('', $errors->all('<div style="color: red;">:message</div>')); 
                         } ?>
-                        <form action="/home/aksi_login" method="POST">
+                        <form action="/home/aksi_login" autocomplete="off" method="POST">
                             <div class="form-group">
                                 <label>Username :</label>
                                 <input type="text" id="username" name="username" class="form-control" placeholder="Username" autocomplete="off">

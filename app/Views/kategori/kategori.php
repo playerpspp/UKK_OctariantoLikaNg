@@ -17,8 +17,8 @@
         <table id="bootstrap-data-table" class="table table-striped table-bordered">					<thead>
 						<tr>
 							<th style="text-align: center;" width="1000px">No.</th>
-							<th style="text-align: center;" width="1000px">Nama Kategori</th>
-							<th style="text-align: center;" width="1000px">Jumlah Buku dengan kategori</th>
+							<th style="text-align: center;" width="10000px">Nama Kategori</th>
+							<th style="text-align: center;" width="10000px">Jumlah Buku dengan kategori</th>
 							
 							<th style="text-align: center;" width="1300px">Action</th>
 						</tr>

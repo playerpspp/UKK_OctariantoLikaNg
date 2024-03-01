@@ -9,7 +9,7 @@
         <div class="card-body">
         <a href="<?= base_url('/Pengawai')?>" class="btn btn-primary">Kembali</a></button>
             <div class="basic-form">
-                <form id="userForm" class="form-horizontal form-label-left" novalidate  action="<?= base_url('pengawai/aksi_edit')?>" method="post">
+                <form id="userForm" class="form-horizontal form-label-left"   action="<?= base_url('pengawai/aksi_edit')?>" method="post">
                  <input type="hidden" name="id" value="<?= $data->id_user ?>">
 
                  <div class="row">

@@ -1,0 +1,34 @@
+CRITICAL - 2024-03-01 07:56:04 --> Invalid argument supplied for foreach()
+#0 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\app\Controllers\Buku.php(86): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', 'C:\\Users\\PC 21\\...', 86, Array)
+#1 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\system\CodeIgniter.php(832): App\Controllers\Buku->aksi_input()
+#2 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+#3 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\PC 21\\...')
+#6 {main}
+CRITICAL - 2024-03-01 07:56:31 --> Invalid argument supplied for foreach()
+#0 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\app\Controllers\Buku.php(86): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', 'C:\\Users\\PC 21\\...', 86, Array)
+#1 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\system\CodeIgniter.php(832): App\Controllers\Buku->aksi_input()
+#2 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+#3 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\PC 21\\...')
+#6 {main}
+ERROR - 2024-03-01 07:57:41 --> Duplicate entry '' for key 'HarusUnikOi'
+CRITICAL - 2024-03-01 07:57:41 --> Invalid argument supplied for foreach()
+#0 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\app\Controllers\Buku.php(86): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', 'C:\\Users\\PC 21\\...', 86, Array)
+#1 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\system\CodeIgniter.php(832): App\Controllers\Buku->aksi_input()
+#2 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+#3 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\PC 21\\...')
+#6 {main}
+ERROR - 2024-03-01 07:58:41 --> Duplicate entry '' for key 'HarusUnikOi'
+CRITICAL - 2024-03-01 07:58:42 --> Invalid argument supplied for foreach()
+#0 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\app\Controllers\Buku.php(86): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', 'C:\\Users\\PC 21\\...', 86, Array)
+#1 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\system\CodeIgniter.php(832): App\Controllers\Buku->aksi_input()
+#2 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+#3 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\PC 21\Desktop\UKK_OctariantoLikaNg\coding\Aplikasi Perpustakaan Digital\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\PC 21\\...')
+#6 {main}
