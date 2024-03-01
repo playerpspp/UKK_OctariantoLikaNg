@@ -76,8 +76,8 @@
               <td class="text-capitalize text-center"><?= $dataa->penulis?></td>
               <td class="text-capitalize text-center"><?= $dataa->penerbit?></td>
               <td class="text-center text-capitalize"><?= $dataa->tahunTerbit?></td>
-              <td class="text-center text-capitalize"><?= $dataa->tanggal?></td>
               <td class="text-center text-capitalize"><?= $dataa->stok?></td>
+              <td class="text-center text-capitalize"><?= $dataa->tanggal?></td>
             </tr>
 <?php } ?>
 

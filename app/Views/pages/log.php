@@ -7,13 +7,9 @@
     <div class="col-lg-12">
         <div class="card">
         <div class="card-title">
-            <p>Tabel Pengawai</p>
+            <p>Tabel Log Activity</p>
             </div>
 
-        <div class="card-body">
-        <a href="<?= base_url('/peminjam/input_pengawai')?>"> <button type="button" class="btn btn-success" >
-										Tambah Peminjam
-									</button> </a>
         <table id="bootstrap-data-table" class="table table-striped table-bordered">					<thead>
 						<tr>
 							<th style="text-align: center;" width="1000px">No.</th>

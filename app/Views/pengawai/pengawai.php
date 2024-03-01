@@ -14,7 +14,7 @@
         <a href="<?= base_url('/pengawai/input_pengawai')?>"> <button type="button" class="btn btn-success" >
 										Tambah Pengawai
 									</button> </a>
-        <table id="bootstrap-data-table" class="table table-striped table-bordered">					<thead>
+        <table id="bootstrap-data-table" class="table table-striped table-bordered" width="100%">					<thead>
 						<tr>
 							<th style="text-align: center;" width="1000px">No.</th>
 							<th style="text-align: center;" width="1000px">Nama Lengkap</th>
